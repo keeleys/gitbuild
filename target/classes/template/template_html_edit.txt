@@ -1,0 +1,24 @@
+
+<form method="post" id="editForm" name="editForm">
+	<input type="hidden" name="${poName}.id" value="\${(po.id)!}" id="poid">
+	<div id="tt" class="easyui-tabs" style="width: 786px; height: 450px;">
+		<div title="编辑${beanTitle}" style="padding: 5px;">
+			<table class="tableForm tableCss">
+			@for(po in list){
+				@ var comment = strutil.trim(strutil.split(po.comment,",")[0]); 
+				@ if(isEmpty(po.comment)) comment=po.name;
+				@if(poLP.odd){
+				<tr>
+				@}
+				<th>${comment}</th>
+				<td><input name="${poName}.${po.name}" class="easyui-validatebox"  type="text"  value="\${(po.${po.name})!}"></td>
+				@if(poLP.even){
+				</tr>
+				@}
+			@}
+			<tr>
+			</tr>
+			</table>
+		</div>
+	</div>
+</form>

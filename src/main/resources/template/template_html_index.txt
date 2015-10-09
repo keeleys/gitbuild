@@ -1,0 +1,35 @@
+
+<#include "/common/layout.html" /> 
+<\@layout>
+	<script type="text/javascript" src="\${root!}/js/easyui/easyui_grid.js"></script>
+	<script type="text/javascript">
+		$(function(){
+			var model_name = "\${root!}/${poName}";
+			var model_title="${beanTitle}";
+			var datagrid=$('#form_datagrid').datagrid({
+				url:model_name+"/grid",
+			 	columns:[[    
+			        @ for(user in list){
+			        	@ var comment = strutil.trim(strutil.split(user.comment,",")[0]); 
+			        	@ if(isEmpty(user.comment)) comment=user.name;
+			        	
+			        	@ if(userLP.first){
+			        		{field:'${user.name}',title:'${comment}',width:100,checkbox:true},
+			        	@}else if(userLP.last){
+			        		{field:'${user.name}',title:'${comment}',width:100}
+			        	@}else{
+			        		{field:'${user.name}',title:'${comment}',width:100},
+			        	@}
+			        @}
+			      
+			    ]]
+			})
+			gridCommon.init(model_title,model_name,datagrid);
+		});
+	</script>
+	<#include "/common/seach.html" /> 
+	<\@seach>
+	<td>姓名</td>
+	<td><input type="text" name="seachLike_name"></li></td>
+	</\@seach>
+</\@layout>

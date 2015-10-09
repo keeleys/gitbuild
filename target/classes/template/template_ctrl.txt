@@ -1,0 +1,11 @@
+package com.ttianjun.controller;
+
+import com.ttianjun.controller.BaseController;
+import com.ttianjun.model.${beanName};
+
+public class ${beanName}Controller extends BaseController<${beanName}>{
+	
+	public ${beanName}Controller() {
+		super(${beanName}.class);
+	}
+}

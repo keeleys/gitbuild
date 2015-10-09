@@ -1,0 +1,6 @@
+package com.ttianjun.model;
+public class ${beanName} extends SeachModel<${beanName}>{
+
+	private static final long serialVersionUID = 1L;
+	public static final ${beanName} dao=new ${beanName}();
+}

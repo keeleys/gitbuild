@@ -1,0 +1,21 @@
+<div  id="tt" class="easyui-tabs" style="width: 786px; height: 450px;">
+<div title="查看${beanTitle}" style="padding:5px;">
+<table class="tableForm tableCss">
+@for(po in list){
+	@ var comment = strutil.trim(strutil.split(po.comment,",")[0]); 
+	@ if(isEmpty(po.comment)) comment=po.name;
+	
+	@if(poLP.odd ){
+	<tr>
+	@}
+	<th>${comment}</th>
+	<td>\${(po.${po.name})!}</td>
+	@if(poLP.even ){
+	</tr>
+	@}
+@}
+<tr>
+</tr>
+</table>
+</div>
+</div>
